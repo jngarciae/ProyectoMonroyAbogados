@@ -1,0 +1,229 @@
+{
+    "_version": "1.8.0",
+    "sap.app": {
+        "_version": "1.3.0",
+        "id": "com.sap.build.standard.untitledPrototype",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "applicationVersion": {
+            "version": "1.2.2"
+        },
+        "ach": "ach",
+        "resources": "resources.json",
+        "dataSources": {
+            "local": {
+                "uri": "/here/goes/your/serviceUrl/local/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "sourceTemplate": {
+            "id": "sap.ui.ui5-template-plugin.2masterdetail",
+            "version": "1.32.5",
+            "toolsId": "7ab82557-97e6-45d0-9f19-64f2e3fc15df"
+        }
+    },
+    "sap.fiori": {
+        "_version": "1.1.0",
+        "registrationIds": [],
+        "archeType": "transactional"
+    },
+    "sap.ui": {
+        "_version": "1.3.0",
+        "technology": "UI5",
+        "icons": {
+            "icon": "sap-icon://detail-view",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "_version": "1.3.0",
+        "rootView": {
+            "viewName": "com.sap.build.standard.untitledPrototype.view.App",
+            "type": "XML",
+            "async": false,
+            "id": "app"
+        },
+        "autoPrefixId": true,
+        "dependencies": {
+            "minUI5Version": "1.50.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "": {
+                "dataSource": "local",
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "preload": true,
+                "settings": {
+                    "loadMetadataAsync": false,
+                    "json": true,
+                    "bJSON": true,
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "useBatch": true,
+                    "refreshAfterChange": false,
+                    "disableHeadRequestForToken": true
+                }
+            }
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "com.sap.build.standard.untitledPrototype.view",
+                "controlId": "idAppControl",
+                "clearTarget": false,
+                "controlAggregation": "detailPages",
+                "async": false,
+                "bypassed": {
+                    "target": [
+                        "DetailPage7",
+                        "MasterPage1"
+                    ]
+                }
+            },
+            "targets": {
+                "MasterPage1": {
+                    "controlAggregation": "masterPages",
+                    "viewName": "MasterPage1",
+                    "viewId": "MasterPage1",
+                    "viewLevel": 1,
+                    "transition": "slide"
+                },
+                "DetailPage1": {
+                    "controlAggregation": "detailPages",
+                    "viewName": "DetailPage1",
+                    "viewId": "DetailPage1",
+                    "viewLevel": 5,
+                    "transition": "slide"
+                },
+                "DetailPage2": {
+                    "controlAggregation": "detailPages",
+                    "viewName": "DetailPage2",
+                    "viewId": "DetailPage2",
+                    "viewLevel": 2,
+                    "transition": "slide"
+                },
+                "DetailPage3": {
+                    "controlAggregation": "detailPages",
+                    "viewName": "DetailPage3",
+                    "viewId": "DetailPage3",
+                    "viewLevel": 6,
+                    "transition": "slide"
+                },
+                "DetailPage5": {
+                    "controlAggregation": "detailPages",
+                    "viewName": "DetailPage5",
+                    "viewId": "DetailPage5",
+                    "viewLevel": 4,
+                    "transition": "slide"
+                },
+                "DetailPage6": {
+                    "controlAggregation": "detailPages",
+                    "viewName": "DetailPage6",
+                    "viewId": "DetailPage6",
+                    "viewLevel": 3,
+                    "transition": "slide"
+                },
+                "DetailPage7": {
+                    "controlAggregation": "detailPages",
+                    "viewName": "DetailPage7",
+                    "viewId": "DetailPage7",
+                    "viewLevel": 1,
+                    "transition": "slide"
+                }
+            },
+            "routes": [
+                {
+                    "pattern": "MasterPage1/DetailPage7/:context:",
+                    "name": "DetailPage7",
+                    "target": [
+                        "MasterPage1",
+                        "DetailPage7"
+                    ]
+                },
+                {
+                    "pattern": "MasterPage1/DetailPage6/:context:",
+                    "name": "DetailPage6",
+                    "target": [
+                        "MasterPage1",
+                        "DetailPage6"
+                    ]
+                },
+                {
+                    "pattern": "MasterPage1/DetailPage5/:context:",
+                    "name": "DetailPage5",
+                    "target": [
+                        "MasterPage1",
+                        "DetailPage5"
+                    ]
+                },
+                {
+                    "pattern": "MasterPage1/DetailPage3/:context:",
+                    "name": "DetailPage3",
+                    "target": [
+                        "MasterPage1",
+                        "DetailPage3"
+                    ]
+                },
+                {
+                    "pattern": "MasterPage1/DetailPage2/:context:",
+                    "name": "DetailPage2",
+                    "target": [
+                        "MasterPage1",
+                        "DetailPage2"
+                    ]
+                },
+                {
+                    "pattern": "MasterPage1/DetailPage1/:context:",
+                    "name": "DetailPage1",
+                    "target": [
+                        "MasterPage1",
+                        "DetailPage1"
+                    ]
+                },
+                {
+                    "pattern": "MasterPage1",
+                    "name": "MasterPage1",
+                    "target": [
+                        "DetailPage1",
+                        "MasterPage1"
+                    ]
+                },
+                {
+                    "pattern": "",
+                    "name": "default",
+                    "target": [
+                        "DetailPage7",
+                        "MasterPage1"
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "dataBinding": {
+        "/webapp/view/DetailPage7.view.xml": {
+            "entitySet": "/CalendarSet"
+        }, 
+        "/webapp/view/DetailPage6.view.xml": {
+            "entitySet": "/HistorySet"
+        }, 
+        "/webapp/view/DetailPage5.view.xml": {
+            "entitySet": "/CasesSet"
+        }, 
+        "/webapp/view/DetailPage3.view.xml": {
+            "entitySet": "/CasesSet"
+        }, 
+        "/webapp/view/DetailPage2.view.xml": {
+            "entitySet": "/CompanySet"
+        }, 
+        "/webapp/view/DetailPage1.view.xml": {
+            "entitySet": "/CompanySet"
+        }, 
+        "/webapp/view/MasterPage1.view.xml": {
+            "entitySet": ""
+        }, 
+        "/webapp/view/Popover1.view.xml": {
+            "entitySet": "/CalendarSet"
+        }, 
+        "/webapp/view/QuickView1.view.xml": {
+            "entitySet": "/CalendarSet"
+        } 
+    }
+}

@@ -1,0 +1,96 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.untitledPrototype.controller.DetailPage5" xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <uxap:ObjectPageLayout showTitleInHeaderContent="true" showHeaderContent="true" showAnchorBar="true" showFooter="false" subSectionLayout="TitleOnTop">
+        <uxap:headerContent/>
+        <uxap:headerTitle>
+            <uxap:ObjectPageHeader objectImageURI="sap-icon://add" objectTitle="Nuevo" objectSubtitle="Caso" headerDesign="Light" objectImageShape="Square" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false" isActionAreaAlwaysVisible="true">
+                <uxap:actions>
+                    <Button text="Save" type="Transparent" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+                </uxap:actions>
+                <uxap:breadCrumbsLinks/>
+                <uxap:navigationBar/>
+            </uxap:ObjectPageHeader>
+        </uxap:headerTitle>
+        <uxap:sections>
+            <uxap:ObjectPageSection showTitle="true" title="Page Section Title" titleUppercase="true" visible="true">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Caso" mode="Expanded">
+                        <uxap:blocks>
+                            <Label text="Por favor, diligencie la siguiente informacion." design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                            <form:Form width="100%" editable="true" visible="true">
+                                <form:title>
+                                    <core:Title text="Datos" level="Auto"/>
+                                </form:title>
+                                <form:formContainers>
+                                    <form:FormContainer visible="true">
+                                        <form:formElements>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <Label text="Nombre" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Input value="{Nombre}" placeholder="Escriba el nombre" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="20"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <Label text="Estado" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Input value="{Estado}" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="50"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <Label text="Abogado encargado" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <ComboBox selectedKey="{Lawyers/ID}" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" items="{path:'/LawyersSet', templateShareable:true}">
+                                                        <items>
+                                                            <core:Item text="{ID}" enabled="true" key="{ID}"/>
+                                                        </items>
+                                                    </ComboBox>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <Label text="Descripción" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Input value="{Descripcion}" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="50"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <Label text="Tipo" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Input value="{Tipo}" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <Label text="Fecha de inicio" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Input value="{path: 'FechaInicio', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" required="false" valueStateText="Invalid entry" maxLength="0"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+                                        <form:title/>
+                                    </form:FormContainer>
+                                </form:formContainers>
+                                <form:layout>
+                                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                                </form:layout>
+                            </form:Form>
+                        </uxap:blocks>
+                        <uxap:moreBlocks/>
+                        <uxap:actions/>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+                <uxap:customAnchorBarButton/>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+        <uxap:footer/>
+    </uxap:ObjectPageLayout>
+</mvc:View>

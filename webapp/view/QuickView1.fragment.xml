@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="com.sap.build.standard.untitledPrototype.controller.QuickView1" xmlns="sap.m">
+    <QuickView placement="Auto" width="320px">
+        <pages>
+            <QuickViewPage header="{path: 'Fecha', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" title="Actividad" titleUrl="" description="{Descripcion}">
+                <groups>
+                    <QuickViewGroup visible="true" heading="{Descripcion}">
+                        <elements>
+                            <QuickViewGroupElement label="{path: 'Fecha', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" value="value" type="{path: 'Fecha', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" emailSubject="" pageLinkId="{path: 'Fecha', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" url="" target="_blank" visible="true"/>
+                        </elements>
+                    </QuickViewGroup>
+                </groups>
+            </QuickViewPage>
+        </pages>
+    </QuickView>
+</core:FragmentDefinition>

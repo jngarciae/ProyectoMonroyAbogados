@@ -1,0 +1,158 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="4bb204f36f5599351afd916f" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="4bb204f36f5599351afd916f_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="CompanySet" EntityType="4bb204f36f5599351afd916f.Company" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="CompanyCompanyCasesCases" Association="4bb204f36f5599351afd916f.CompanyCompanyCasesCases" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="CompanySet" Role="FromRole_CompanyCompanyCasesCases"/>
+                    <End EntitySet="CasesSet" Role="ToRole_CompanyCompanyCasesCases"/>
+                </AssociationSet>
+                <AssociationSet Name="CompanycalendarCalendar" Association="4bb204f36f5599351afd916f.CompanycalendarCalendar" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="CompanySet" Role="FromRole_CompanycalendarCalendar"/>
+                    <End EntitySet="CalendarSet" Role="ToRole_CompanycalendarCalendar"/>
+                </AssociationSet>
+                <EntitySet Name="CasesSet" EntityType="4bb204f36f5599351afd916f.Cases" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="CasesDocumentsDocuments" Association="4bb204f36f5599351afd916f.CasesDocumentsDocuments" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="CasesSet" Role="FromRole_CasesDocumentsDocuments"/>
+                    <End EntitySet="DocumentsSet" Role="ToRole_CasesDocumentsDocuments"/>
+                </AssociationSet>
+                <AssociationSet Name="CasesLawyersLawyers" Association="4bb204f36f5599351afd916f.CasesLawyersLawyers" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="CasesSet" Role="FromRole_CasesLawyersLawyers"/>
+                    <End EntitySet="LawyersSet" Role="ToRole_CasesLawyersLawyers"/>
+                </AssociationSet>
+                <AssociationSet Name="CasesHistoryHistory" Association="4bb204f36f5599351afd916f.CasesHistoryHistory" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="CasesSet" Role="FromRole_CasesHistoryHistory"/>
+                    <End EntitySet="HistorySet" Role="ToRole_CasesHistoryHistory"/>
+                </AssociationSet>
+                <EntitySet Name="DocumentsSet" EntityType="4bb204f36f5599351afd916f.Documents" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="LawyersSet" EntityType="4bb204f36f5599351afd916f.Lawyers" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="HistorySet" EntityType="4bb204f36f5599351afd916f.History" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="CalendarSet" EntityType="4bb204f36f5599351afd916f.Calendar" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+            </EntityContainer>
+            <EntityType Name="Company">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+                <Property Name="PhoneNumer" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="PhoneNumer"/>
+                <Property Name="Email" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Email"/>
+                <Property Name="Website" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Website"/>
+                <Property Name="CompanySize" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="CompanySize"/>
+                <Property Name="CompanyLogo" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="CompanyLogo"/>
+                <Property Name="PrimaryContact" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="PrimaryContact"/>
+                <Property Name="SecondContact" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="SecondContact"/>
+                <NavigationProperty Name="CompanyCases" Relationship="4bb204f36f5599351afd916f.CompanyCompanyCasesCases" FromRole="FromRole_CompanyCompanyCasesCases" ToRole="ToRole_CompanyCompanyCasesCases"/>
+                <NavigationProperty Name="calendar" Relationship="4bb204f36f5599351afd916f.CompanycalendarCalendar" FromRole="FromRole_CompanycalendarCalendar" ToRole="ToRole_CompanycalendarCalendar"/>
+            </EntityType>
+            <Association Name="CompanyCompanyCasesCases">
+                <End Type="4bb204f36f5599351afd916f.Company" Multiplicity="1" Role="FromRole_CompanyCompanyCasesCases"/>
+                <End Type="4bb204f36f5599351afd916f.Cases" Multiplicity="*" Role="ToRole_CompanyCompanyCasesCases"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_CompanyCompanyCasesCases">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_CompanyCompanyCasesCases">
+                        <PropertyRef Name="___FK_8bf63c95247bd7e01b0588bc_00025"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="CompanycalendarCalendar">
+                <End Type="4bb204f36f5599351afd916f.Company" Multiplicity="1" Role="FromRole_CompanycalendarCalendar"/>
+                <End Type="4bb204f36f5599351afd916f.Calendar" Multiplicity="*" Role="ToRole_CompanycalendarCalendar"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_CompanycalendarCalendar">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_CompanycalendarCalendar">
+                        <PropertyRef Name="___FK_d77cf3b9ef97cc451b0d59c4_00001"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Cases">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Nombre" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+                <Property Name="FechaInicio" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="DefaultName"/>
+                <Property Name="___FK_8bf63c95247bd7e01b0588bc_00025" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_8bf63c95247bd7e01b0588bc_00025"/>
+                <Property Name="Estado" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Estado"/>
+                <Property Name="___FK_8bf63c95247bd7e01b0588bc_00035" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_8bf63c95247bd7e01b0588bc_00035"/>
+                <Property Name="Descripcion" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Descripcion"/>
+                <Property Name="Tipo" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Tipo"/>
+                <NavigationProperty Name="Documents" Relationship="4bb204f36f5599351afd916f.CasesDocumentsDocuments" FromRole="FromRole_CasesDocumentsDocuments" ToRole="ToRole_CasesDocumentsDocuments"/>
+                <NavigationProperty Name="Lawyers" Relationship="4bb204f36f5599351afd916f.CasesLawyersLawyers" FromRole="FromRole_CasesLawyersLawyers" ToRole="ToRole_CasesLawyersLawyers"/>
+                <NavigationProperty Name="History" Relationship="4bb204f36f5599351afd916f.CasesHistoryHistory" FromRole="FromRole_CasesHistoryHistory" ToRole="ToRole_CasesHistoryHistory"/>
+            </EntityType>
+            <Association Name="CasesDocumentsDocuments">
+                <End Type="4bb204f36f5599351afd916f.Cases" Multiplicity="1" Role="FromRole_CasesDocumentsDocuments"/>
+                <End Type="4bb204f36f5599351afd916f.Documents" Multiplicity="*" Role="ToRole_CasesDocumentsDocuments"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_CasesDocumentsDocuments">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_CasesDocumentsDocuments">
+                        <PropertyRef Name="___FK_8bf63c95247bd7e01b0588bc_00029"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="CasesLawyersLawyers">
+                <End Type="4bb204f36f5599351afd916f.Cases" Multiplicity="1" Role="FromRole_CasesLawyersLawyers"/>
+                <End Type="4bb204f36f5599351afd916f.Lawyers" Multiplicity="1" Role="ToRole_CasesLawyersLawyers"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_CasesLawyersLawyers">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_CasesLawyersLawyers">
+                        <PropertyRef Name="___FK_8bf63c95247bd7e01b0588bc_00035"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="CasesHistoryHistory">
+                <End Type="4bb204f36f5599351afd916f.Cases" Multiplicity="1" Role="FromRole_CasesHistoryHistory"/>
+                <End Type="4bb204f36f5599351afd916f.History" Multiplicity="*" Role="ToRole_CasesHistoryHistory"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_CasesHistoryHistory">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_CasesHistoryHistory">
+                        <PropertyRef Name="___FK_4022f289790506941b059c22_00012"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Documents">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_8bf63c95247bd7e01b0588bc_00029" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_8bf63c95247bd7e01b0588bc_00029"/>
+            </EntityType>
+            <EntityType Name="Lawyers">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Nombre" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Nombre"/>
+            </EntityType>
+            <EntityType Name="History">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="descripcion" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="descripcion"/>
+                <Property Name="fechaEntrada" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="fechaEntrada"/>
+                <Property Name="___FK_4022f289790506941b059c22_00012" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_4022f289790506941b059c22_00012"/>
+            </EntityType>
+            <EntityType Name="Calendar">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Fecha" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="Fecha"/>
+                <Property Name="Descripcion" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Descripcion"/>
+                <Property Name="___FK_d77cf3b9ef97cc451b0d59c4_00001" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_d77cf3b9ef97cc451b0d59c4_00001"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

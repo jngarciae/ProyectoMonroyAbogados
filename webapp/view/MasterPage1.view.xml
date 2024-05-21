@@ -1,0 +1,30 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.untitledPrototype.controller.MasterPage1" xmlns="sap.m">
+    <Page title="Lista de clientes" showHeader="true" showFooter="true" showNavButton="false">
+        <content>
+            <List id="sap_List_Page_0-content-sap_m_ObjectList-1" mode="SingleSelectMaster" width="100%" headerText="Header" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" visible="true" itemPress="_onObjectListItemPress" items="{path:'/CompanySet', templateShareable:true}">
+                <infoToolbar/>
+                <headerToolbar>
+                    <Toolbar enabled="true" visible="true" width="" design="Solid">
+                        <content>
+                            <SearchField value="" placeholder="Busque por nombre..." showSearchButton="true" visible="true" width="100%" search="_onSearchFieldSearch"/>
+                        </content>
+                    </Toolbar>
+                </headerToolbar>
+                <items>
+                    <ObjectListItem intro="{ID}" title="{Name}" number="{PhoneNumer}" numberUnit="{Email}" numberState="None" type="Active" selected="false" showMarkers="false" press="_onObjectListItemPress1">
+                        <attributes/>
+                        <firstStatus/>
+                        <secondStatus/>
+                    </ObjectListItem>
+                </items>
+            </List>
+            <Button text="Crear cliente" type="Emphasized" iconFirst="true" width="100%" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content/>
+            </OverflowToolbar>
+        </footer>
+        <headerContent/>
+    </Page>
+</mvc:View>
